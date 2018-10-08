@@ -138,37 +138,42 @@ class Blockchain {
 |  - Self-invoking function to add blocks to chain                             |                                         |
 |  ===========================================================================*/
 
-let myBlockChain = new Blockchain();
+// let myBlockChain = new Blockchain();
+//
+// let theLoop = (i) => {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       let blockTest = new Block("Test Block - " + (i + 1));
+//       myBlockChain.addBlock(blockTest).then((result) => {
+//         console.log(result);
+//         i++;
+//         if (i < 10) {
+//           theLoop(i).then(resolve);
+//         } else {
+//           resolve('done');
+//         }
+//         ;
+//       });
+//     }, 1000);
+//   });
+// }
+//
+// theLoop(0).then(() => {
+//   // get height
+//   myBlockChain.getBlockHeight().then((response) => {
+//     console.log(response);
+//   });
+//
+//   // validate specific block
+//   myBlockChain.validateBlock(0).then((response) => {
+//     console.log(response);
+//   });
+//
+//   // validate whole chain
+//   myBlockChain.validateChain();
+// });
 
-let theLoop = (i) => {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      let blockTest = new Block("Test Block - " + (i + 1));
-      myBlockChain.addBlock(blockTest).then((result) => {
-        console.log(result);
-        i++;
-        if (i < 10) {
-          theLoop(i).then(resolve);
-        } else {
-          resolve('done');
-        }
-        ;
-      });
-    }, 1000);
-  });
+module.exports = {
+  Block : Block,
+  Blockchain : Blockchain,
 }
-
-theLoop(0).then(() => {
-  // get height
-  myBlockChain.getBlockHeight().then((response) => {
-    console.log(response);
-  });
-
-  // validate specific block
-  myBlockChain.validateBlock(0).then((response) => {
-    console.log(response);
-  });
-
-  // validate whole chain
-  myBlockChain.validateChain();
-});
